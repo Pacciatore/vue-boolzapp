@@ -12,3 +12,17 @@
     background-color: var(--tr-boolzap-grey);
     height: 85vh;
 }
+
+.app-window {
+    background-color: white;
+
+    height: 90vh;
+    width: 80%;
+
+    top: 50px;
+    left: 175px;
+
+    z-index: 100;
+}
+
+/* DEBUGGER */
