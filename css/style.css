@@ -1,0 +1,14 @@
+:root {
+    --tr-boolzap-green: #009688;
+    --tr-boolzap-grey: #d9dbd4;
+}
+
+.bg-page-top {
+    background-color: var(--tr-boolzap-green);
+    height: 15vh;
+}
+
+.bg-page-bottom {
+    background-color: var(--tr-boolzap-grey);
+    height: 85vh;
+}
