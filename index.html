@@ -40,8 +40,38 @@
 
         <div class="app-window position-absolute d-flex">
 
-            <div id="left-panel" class="col-4"></div>
-            <div id="right-panel" class="col-8"></div>
+            <!-- Pannello di sinistra -->
+            <div id="left-panel" class="col-4 d-flex flex-column">
+
+                <!-- Zona utente -->
+                <div class="logged-user col-2 d-flex justify-content-between align-items-center p-2">
+
+                    <div class="user-info-container d-flex align-items-center fw-semibold">
+                        <div class="propic-container me-2">
+                            <img class="img-fluid" src="img/avatar_io.jpg" alt="Sofia">
+                        </div>
+                        Sofia
+                    </div>
+
+                    <div class="icon-container fs-4">
+                        <i class="fas fa-circle-notch"></i>
+                        <i class="fas fa-comment-alt"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+
+                </div>
+
+                <div class="notification-area col-3"></div>
+
+                <div class="contact-research col-1"></div>
+
+                <div class="contacts-container col"></div>
+
+            </div>
+
+            <div id="right-panel" class="col-8">
+
+            </div>
 
         </div>
 

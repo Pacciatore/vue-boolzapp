@@ -1,6 +1,8 @@
 :root {
     --tr-boolzap-green: #009688;
     --tr-boolzap-grey: #d9dbd4;
+    --tr-boolzap-light-grey: #eaeaea;
+    --tr-boolzap-dark-grey: #b1b1b1;
 }
 
 .bg-page-top {
@@ -26,9 +28,39 @@
     z-index: 100;
 }
 
-#left-panel {}
+/* Shared */
+.propic-container {
+    width: 50px;
+    height: 50px;
+}
 
+.propic-container>img {
+    border-radius: 50%;
+}
+
+/*#region Left Panel */
+#left-panel>* {
+    width: 100%;
+}
+
+#left-panel .logged-user {
+    background-color: var(--tr-boolzap-light-grey);
+}
+
+#left-panel .icon-container {
+    color: var(--tr-boolzap-dark-grey);
+}
+
+#left-panel .icon-container>* {
+    padding: 0 5px;
+}
+
+/*#endregion Left Panel  */
+
+/*#region Right Panel  */
 #right-panel {}
+
+/*#endregion Right Panel  */
 
 /* DEBUGGER */
 
