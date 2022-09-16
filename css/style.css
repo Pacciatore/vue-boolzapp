@@ -3,6 +3,8 @@
     --tr-boolzap-grey: #d9dbd4;
     --tr-boolzap-light-grey: #eaeaea;
     --tr-boolzap-dark-grey: #b1b1b1;
+    --tr-boolzap-azure: #8edafc;
+    --tr-boolzap-azure-grey: #7096a2;
 }
 
 .bg-page-top {
@@ -29,12 +31,14 @@
 }
 
 /* Shared */
-.propic-container {
+.propic-container,
+.notification-icon {
     width: 50px;
     height: 50px;
 }
 
-.propic-container>img {
+.propic-container>img,
+.notification-icon {
     border-radius: 50%;
 }
 
@@ -43,6 +47,7 @@
     width: 100%;
 }
 
+/*#region User Zone  */
 #left-panel .logged-user {
     background-color: var(--tr-boolzap-light-grey);
 }
@@ -54,6 +59,26 @@
 #left-panel .icon-container>* {
     padding: 0 5px;
 }
+
+/*#endregion User Zone  */
+
+/*#region Notification area */
+.notification-area {
+    background-color: var(--tr-boolzap-azure);
+}
+
+.notification-icon {
+    background-color: white;
+    color: var(--tr-boolzap-azure);
+    font-size: 1.5rem;
+    margin: 5px 25px;
+}
+
+.notification-text>a {
+    color: var(--tr-boolzap-azure-grey);
+}
+
+/*#endregion Notification area  */
 
 /*#endregion Left Panel  */
 
