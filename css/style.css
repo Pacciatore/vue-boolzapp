@@ -76,9 +76,28 @@
 
 .notification-text>a {
     color: var(--tr-boolzap-azure-grey);
+    font-size: 0.85rem;
 }
 
 /*#endregion Notification area  */
+
+/*#region Search area  */
+.contact-research {
+    background-color: var(--tr-boolzap-light-grey);
+}
+
+.contact-research i {
+    color: var(--tr-boolzap-dark-grey);
+    background-color: white;
+    border-right: 1px solid var(--tr-boolzap-light-grey);
+    padding: 10px 30px;
+}
+
+.contact-research .search-input:focus-visible {
+    outline: none;
+}
+
+/*#endregion Search area  */
 
 /*#endregion Left Panel  */
 
