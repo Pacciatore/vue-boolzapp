@@ -21,8 +21,21 @@
 
     top: 50px;
     left: 175px;
+    overflow: hidden;
 
     z-index: 100;
 }
 
+#left-panel {}
+
+#right-panel {}
+
 /* DEBUGGER */
+
+.debug #left-panel {
+    background-color: yellow;
+}
+
+.debug #right-panel {
+    background-color: yellowgreen;
+}
