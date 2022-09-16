@@ -87,7 +87,32 @@
 
                 </div>
 
-                <div class="contacts-container col"></div>
+                <!-- Zona contatti/chat -->
+                <div class="contacts-container col">
+
+                    <div class="contact">
+
+                        <div v-for="(contact, index) in contacts" :class="{ active: index === activeIndex}"
+                            class="contact p-2" @click="setActiveContact(index)">
+
+                            <div class="avatar-info-container d-flex align-items-center">
+                                <div class="propic-container">
+                                    <img class="avatar-icon img-fluid" :src="'img/avatar' + contact.avatar +  '.jpg'"
+                                        :alt="contact.name" />
+                                </div>
+
+                                <div class="avatar-info ps-3 pt-1">
+                                    <h2>{{contact.name}}</h2>
+                                    <p>Ultimo messaggio inviato</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 

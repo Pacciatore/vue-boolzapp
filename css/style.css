@@ -1,8 +1,12 @@
 :root {
     --tr-boolzap-green: #009688;
+
     --tr-boolzap-grey: #d9dbd4;
     --tr-boolzap-light-grey: #eaeaea;
     --tr-boolzap-dark-grey: #b1b1b1;
+    --tr-boolzap-search-bg: #fafafa;
+    --tr-contact-grey: #e9ebeb;
+
     --tr-boolzap-azure: #8edafc;
     --tr-boolzap-azure-grey: #7096a2;
 }
@@ -83,7 +87,7 @@
 
 /*#region Search area  */
 .contact-research {
-    background-color: var(--tr-boolzap-light-grey);
+    background-color: var(--tr-boolzap-search-bg);
 }
 
 .contact-research i {
@@ -98,6 +102,37 @@
 }
 
 /*#endregion Search area  */
+
+/*#region Contacts area  */
+.contacts-container {
+    overflow-y: scroll;
+}
+
+.contacts-container .contact {
+    background-color: white;
+    cursor: pointer;
+}
+
+.avatar-info-container>.propic-container {
+    width: 65px;
+    height: 65px;
+}
+
+.avatar-info>h2 {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.avatar-info>p {
+    font-size: 0.85rem;
+    color: var(--tr-boolzap-dark-grey);
+}
+
+.contacts-container .contact.active {
+    background-color: var(--tr-contact-grey);
+}
+
+/*#endregion Contacts area  */
 
 /*#endregion Left Panel  */
 
