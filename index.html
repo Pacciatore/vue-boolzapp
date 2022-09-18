@@ -152,9 +152,21 @@
                 </div>
 
                 <!-- Zona chat -->
-                <div id="chat-display" class="flex-grow-1">
+                <div id="chat-display" class="flex-grow-1 d-flex flex-column gap-2">
 
+                    <div v-for="message in contacts[activeIndex].messages"
+                        class="chat-message-text col-5 rounded-4 p-3 position-relative"
+                        :class="{ sent: message.status === 'sent', received : message.status === 'received' }">
 
+                        {{ message.message }}
+
+                        <div class="message-hour position-absolute">
+
+                            16:00
+
+                        </div>
+
+                    </div>
 
                 </div>
 

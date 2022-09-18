@@ -1,4 +1,5 @@
 :root {
+    --tr-boolzap-light-green: #d5f9ba;
     --tr-boolzap-green: #009688;
 
     --tr-boolzap-grey: #d9dbd4;
@@ -173,8 +174,24 @@
 /*#region Zona Chat Display  */
 #chat-display {
     overflow-y: scroll;
+    padding: 3rem 6rem;
 }
 
+#chat-display .chat-message-text.received {
+    background-color: white;
+}
+
+#chat-display .chat-message-text.sent {
+    background-color: var(--tr-boolzap-light-green);
+    align-self: flex-end;
+}
+
+#chat-display .message-hour {
+    font-size: 0.65rem;
+    color: var(--tr-boolzap-dark-grey);
+
+    right: 10px;
+}
 
 /*#endregion Zona Chat Display  */
 
