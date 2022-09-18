@@ -80,6 +80,14 @@
     padding: 0 5px;
 }
 
+
+.avatar-info>p,
+.chat-contact-info .last-seen {
+    font-size: 0.85rem;
+    color: var(--tr-boolzap-dark-grey);
+}
+
+
 /*#region Left Panel */
 
 /*#region User Zone  */
@@ -139,11 +147,6 @@
     margin: 0;
 }
 
-.avatar-info>p {
-    font-size: 0.85rem;
-    color: var(--tr-boolzap-dark-grey);
-}
-
 .contacts-container .contact.active {
     background-color: var(--tr-contact-grey);
 }
@@ -160,6 +163,10 @@
 }
 
 /*#region Zona contatto chat  */
+.chat-contact-info {
+    padding: 0 15px;
+}
+
 
 /*#endregion Zona contatto chat  */
 

@@ -122,11 +122,25 @@
                 <!-- Zona contatto chat -->
                 <div class="chat-user col-2 d-flex justify-content-between align-items-center p-2">
 
-                    <div class="user-info-container d-flex align-items-center fw-semibold">
-                        <div class="propic-container me-2">
-                            <img class="img-fluid" src="img/avatar_io.jpg" alt="Sofia">
+                    <div class="user-info-container d-flex align-items-center">
+                        <div class="propic-container">
+                            <img class="avatar-icon img-fluid"
+                                :src="'img/avatar' + contacts[activeIndex].avatar +  '.jpg'"
+                                :alt="contacts[activeIndex].name" />
                         </div>
-                        Sofia
+
+                        <div class="chat-contact-info">
+
+                            <div class="contact-name fw-semibold">
+                                {{ contacts[activeIndex].name }}
+                            </div>
+
+                            <div class="last-seen">
+                                Ultimo accesso alle 12:00
+                            </div>
+
+                        </div>
+
                     </div>
 
                     <div class="icon-container fs-4">
