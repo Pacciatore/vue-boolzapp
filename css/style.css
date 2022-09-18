@@ -11,6 +11,8 @@
     --tr-boolzap-azure-grey: #7096a2;
 }
 
+/* Generics */
+
 .bg-page-top {
     background-color: var(--tr-boolzap-green);
     height: 15vh;
@@ -33,6 +35,11 @@
 
     z-index: 100;
 }
+
+*:focus-visible {
+    outline: none;
+}
+
 
 /* Shared */
 .propic-container,
@@ -57,16 +64,21 @@
 }
 
 #left-panel .icon-container,
-#right-panel .icon-container {
+#right-panel .icon-container,
+.chat-message-bar>i {
     color: var(--tr-boolzap-dark-grey);
+}
+
+#left-panel .icon-container,
+#right-panel .icon-container {
     padding-right: 10px;
 }
+
 
 #left-panel .icon-container>*,
 #right-panel .icon-container>* {
     padding: 0 5px;
 }
-
 
 /*#region Left Panel */
 
@@ -103,10 +115,6 @@
     background-color: white;
     border-right: 1px solid var(--tr-boolzap-light-grey);
     padding: 10px 30px;
-}
-
-.contact-research .search-input:focus-visible {
-    outline: none;
 }
 
 /*#endregion Search area  */
@@ -147,7 +155,33 @@
 /*#region Right Panel  */
 #right-panel {
     border-left: 1px solid var(--tr-boolzap-grey);
+    background-image: url(../img/mine.jpg);
+
 }
+
+/*#region Zona contatto chat  */
+
+/*#endregion Zona contatto chat  */
+
+/*#region Zona Chat Display  */
+#chat-display {
+    overflow-y: scroll;
+}
+
+
+/*#endregion Zona Chat Display  */
+
+/*#region Zona Message Bar  */
+
+/*#endregion Zona Message Bar  */
+.chat-message-bar {
+    background-color: #ffffff80;
+}
+
+.chat-message-bar>* {
+    height: 50px;
+}
+
 
 /*#endregion Right Panel  */
 
