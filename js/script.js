@@ -6,13 +6,14 @@ const app = new Vue({
 
     el: '#app',
     data: {
+        newMessage: '',
         activeIndex: 0,
         contacts,
     },
     methods: {
         setActiveContact(index) {
             this.activeIndex = index;
-
+            // TODO orario da corregere da h/m in formato hh/mm
             const dateToFormat = this.contacts[index].messages[0].date;
             const array = dateToFormat.split(" "); // ["10/01/2020",  "15:30:55"]
             const ora = array[1]; // "15:30:55"
@@ -22,6 +23,21 @@ const app = new Vue({
 
             const adesso = new Date();
             console.log(adesso.getHours() + ":" + adesso.getMinutes());
+        },
+        sendMessage(activeIndex) {
+
+            const toSend = {
+                date: new Date(),
+                message: this.newMessage.trim(),
+                status: 'sent'
+            };
+
+            this.contacts[activeIndex].messages.push(toSend);
+            console.log('ok');
+            console.log(toSend);
+            console.log(toSend.date)
+            this.newMessage = '';
+
         }
     }
 
