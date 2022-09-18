@@ -32,10 +32,12 @@ const app = new Vue({
                 status: 'sent'
             };
 
-            this.contacts[activeIndex].messages.push(toSend);
-            console.log('ok');
-            console.log(toSend);
-            console.log(toSend.date)
+            if (toSend.message.length > 0) {
+                this.contacts[activeIndex].messages.push(toSend);
+            } else {
+                console.log('impossibile inviare')
+            }
+
             this.newMessage = '';
 
         }
