@@ -200,8 +200,6 @@
 /*#endregion Zona Chat Display  */
 
 /*#region Zona Message Bar  */
-
-/*#endregion Zona Message Bar  */
 .chat-message-bar {
     background-color: #ffffff80;
 }
@@ -214,6 +212,8 @@
     box-shadow: inset 0px 0px 20px 0px #aba09f;
 }
 
+
+/*#endregion Zona Message Bar  */
 
 /*#endregion Right Panel  */
 
