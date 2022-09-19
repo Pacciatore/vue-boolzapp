@@ -222,8 +222,8 @@
                     <template v-if="contactsToSearch.length === 0">
 
                         <div v-for="message in contacts[activeIndex].messages"
-                            class="chat-message-text col-5 rounded-4 p-3 position-relative"
-                            :class="{ sent: message.status === 'sent', received : message.status === 'received' }">
+                            class="chat-message-text col-5 rounded-4 p-3 position-relative" :class="{ sent: message.status.includes('sent'), received : message.status.includes('received'),
+                        deleted : message.status.includes('deleted') }">
 
                             {{ message.message }}
 
@@ -240,7 +240,8 @@
                                 <ul class="dropdown-menu">
                                     <li class="message-info dropdown-item ps-2" @click="showMessageInfo">Message info
                                     </li>
-                                    <li class="message-delete dropdown-item ps-2" @click="deleteMessage">Delete message
+                                    <li class="message-delete dropdown-item ps-2" @click="deleteMessage(message)">Delete
+                                        message
                                     </li>
                                 </ul>
                             </div>
@@ -253,8 +254,8 @@
                     <template v-else>
 
                         <div v-for=" message in contactsToSearch[activeIndex].messages"
-                            class="chat-message-text col-5 rounded-4 p-3 position-relative"
-                            :class="{ sent: message.status === 'sent', received : message.status === 'received' }">
+                            class="chat-message-text col-5 rounded-4 p-3 position-relative" :class="{ sent: message.status.includes('sent'), received : message.status.includes('received'),
+                        deleted : message.status.includes('deleted') }">
 
                             {{ message.message }}
 
@@ -262,6 +263,19 @@
 
                                 {{ getMessageHhMm(message.date) }}
 
+                            </div>
+
+                            <div class="dropdown position-absolute d-none">
+                                <div class="dropdown-message-menu" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <ul class="dropdown-menu">
+                                    <li class="message-info dropdown-item ps-2" @click="showMessageInfo">Message info
+                                    </li>
+                                    <li class="message-delete dropdown-item ps-2" @click="deleteMessage(message)">Delete
+                                        message
+                                    </li>
+                                </ul>
                             </div>
 
                         </div>

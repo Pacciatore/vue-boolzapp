@@ -83,8 +83,11 @@ const app = new Vue({
             console.log(text);
             this.searchInput.text = '';
         },
-        deleteMessage() {
-            console.log('eliminato');
+        deleteMessage(message) {
+            if (!message.status.includes('deleted')) {
+                message.message = 'Messaggio eliminato';
+                message.status += ' deleted';
+            }
         },
         showMessageInfo() {
             console.log('message info')
