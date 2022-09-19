@@ -83,7 +83,8 @@
 
                         <input type="text" class="search-input flex-grow-1 border-0 ps-2 tr-fade"
                             :class="{ noText : searchInput.empty === true }" @keyUp="emptyCheck(searchInput)"
-                            @keyUp.enter="" v-model="searchInput.text" placeholder="Cerca o inizia una nuova chat">
+                            @keyUp.enter="searchContact(searchInput.text)" v-model="searchInput.text"
+                            placeholder="Cerca o inizia una nuova chat">
                     </div>
 
                 </div>
@@ -91,7 +92,8 @@
                 <!-- Zona contatti/chat -->
                 <div class="contacts-container col">
 
-                    <div class="contact">
+                    <!-- Lista Contatti completa -->
+                    <div v-if="contactsToSearch.length === 0" class="contact">
 
                         <div v-for="(contact, index) in contacts" :class="{ active: index === activeIndex}"
                             class="contact p-2" @click="setActiveContact(index)">
@@ -104,6 +106,32 @@
 
                                 <div class="avatar-info ps-3 pt-1">
                                     <h2>{{contact.name}}</h2>
+                                    <p>Ultimo messaggio inviato</p>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- Lista Contatti ricercati -->
+                    <div v-else class="contact">
+
+                        <div v-for="(searchedContact, index) in contactsToSearch"
+                            :class="{ active: index === activeIndex}" class="contact p-2"
+                            @click="setActiveContact(index)">
+
+                            <div class="avatar-info-container d-flex align-items-center">
+                                <div class="propic-container">
+                                    <img class="avatar-icon img-fluid"
+                                        :src="'img/avatar' + searchedContact.avatar +  '.jpg'"
+                                        :alt="searchedContact.name" />
+                                </div>
+
+                                <div class="avatar-info ps-3 pt-1">
+                                    <h2>{{searchedContact.name}}</h2>
                                     <p>Ultimo messaggio inviato</p>
                                 </div>
 

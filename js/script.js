@@ -15,7 +15,9 @@ const app = new Vue({
             empty: false
         },
         activeIndex: 0,
+        loaded: true,
         contacts,
+        contactsToSearch: []
     },
     methods: {
         setActiveContact(index) {
@@ -62,6 +64,26 @@ const app = new Vue({
 
             }, 1000)
         },
+        searchContact(text) {
+            this.contactsToSearch.length = 0;
+
+            if (text.trim().length > 0) {
+                text = text.toLowerCase();
+                this.contacts.forEach(contact => {
+
+                    const lowerName = contact.name.toLowerCase();
+
+                    if (lowerName.startsWith(text)) {
+                        this.contactsToSearch.push(contact);
+                        console.log(this.contactsToSearch)
+                    }
+                });
+            }
+
+            console.log(text);
+            this.searchInput.text = '';
+        },
+
         emptyCheck(textContainer) {
             const toCheck = textContainer.text.trim();
             if (toCheck.length === 0) {
