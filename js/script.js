@@ -37,6 +37,8 @@ const app = new Vue({
 
             if (toSend.message.length > 0) {
                 this.contacts[activeIndex].messages.push(toSend);
+
+                this.receiveMessage(activeIndex);
             } else {
                 console.log('impossibile inviare');
             }
@@ -44,6 +46,17 @@ const app = new Vue({
             this.newMessage.text = '';
 
 
+        },
+        receiveMessage(activeIndex) {
+            setTimeout(() => {
+                const toReceive = {
+                    date: new Date(),
+                    message: 'Ok!',
+                    status: 'received'
+                };
+                this.contacts[activeIndex].messages.push(toReceive);
+
+            }, 1000)
         },
         emptyCheck(text) {
             const toCheck = text.trim();
