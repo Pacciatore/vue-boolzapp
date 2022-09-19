@@ -10,6 +10,10 @@ const app = new Vue({
             text: '',
             empty: false
         },
+        searchInput: {
+            text: '',
+            empty: false
+        },
         activeIndex: 0,
         contacts,
     },
@@ -58,13 +62,13 @@ const app = new Vue({
 
             }, 1000)
         },
-        emptyCheck(text) {
-            const toCheck = text.trim();
+        emptyCheck(textContainer) {
+            const toCheck = textContainer.text.trim();
             if (toCheck.length === 0) {
-                this.newMessage.empty = true;
+                textContainer.empty = true;
                 console.log(this.newMessage.empty);
             } else {
-                this.newMessage.empty = false;
+                textContainer.empty = false;
                 console.log(this.newMessage.empty);
             }
         }

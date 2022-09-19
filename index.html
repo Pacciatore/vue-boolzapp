@@ -81,8 +81,9 @@
                     <div class="bg-white d-flex">
                         <i class="fas fa-search"></i>
 
-                        <input type="text" class="search-input flex-grow-1 border-0 ps-2"
-                            placeholder="Cerca o inizia una nuova chat">
+                        <input type="text" class="search-input flex-grow-1 border-0 ps-2 tr-fade"
+                            :class="{ noText : searchInput.empty === true }" @keyUp="emptyCheck(searchInput)"
+                            @keyUp.enter="" v-model="searchInput.text" placeholder="Cerca o inizia una nuova chat">
                     </div>
 
                 </div>
@@ -177,7 +178,7 @@
 
                     <input type="text" placeholder="Scrivi un messaggio" :class="{ noText : newMessage.empty === true }"
                         class="flex-grow-1 border-0 ps-3 rounded tr-fade" v-model="newMessage.text"
-                        @keyUp="emptyCheck(newMessage.text)" @keyUp.enter="sendMessage(activeIndex)">
+                        @keyUp="emptyCheck(newMessage)" @keyUp.enter="sendMessage(activeIndex)">
 
                     <i class="fa fa-microphone col-1 d-flex align-items-center justify-content-center fs-4"></i>
 
