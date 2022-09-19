@@ -45,7 +45,7 @@ const app = new Vue({
                 if (toSend.message.length > 0) {
                     this.contacts[activeIndex].messages.push(toSend);
 
-                    this.receiveMessage(activeIndex, this.contacts[activeIndex]);
+                    this.receiveMessage(this.contacts[activeIndex]);
                 } else {
                     console.log('impossibile inviare');
                 }
@@ -53,7 +53,7 @@ const app = new Vue({
                 if (toSend.message.length > 0) {
                     this.contactsToSearch[activeIndex].messages.push(toSend);
 
-                    this.receiveMessage(activeIndex, this.contactsToSearch[activeIndex]);
+                    this.receiveMessage(this.contactsToSearch[activeIndex]);
                 } else {
                     console.log('impossibile inviare');
                 }
@@ -63,7 +63,7 @@ const app = new Vue({
 
 
         },
-        receiveMessage(activeIndex, contact) {
+        receiveMessage(contact) {
             setTimeout(() => {
                 const toReceive = {
                     date: new Date(),
