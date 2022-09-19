@@ -131,6 +131,8 @@
     background-color: white;
     border-right: 1px solid var(--tr-boolzap-light-grey);
     padding: 10px 30px;
+
+    cursor: pointer;
 }
 
 /*#endregion Search area  */

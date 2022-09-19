@@ -79,12 +79,13 @@
                 <div class="contact-research col-1 p-2">
 
                     <div class="bg-white d-flex">
-                        <i class="fas fa-search"></i>
+                        <i @click="emptyCheck(searchInput), searchContact(searchInput.text)" class="fas fa-search"></i>
 
                         <input type="text" class="search-input flex-grow-1 border-0 ps-2 tr-fade"
                             :class="{ noText : searchInput.empty === true }" @keyUp="emptyCheck(searchInput)"
-                            @keyUp.enter="searchContact(searchInput.text)" v-model="searchInput.text"
-                            placeholder="Cerca o inizia una nuova chat">
+                            @keyUp.enter="searchContact(searchInput.text)"
+                            @keyUp.escape="contactsToSearch.length = 0; searchInput.text = ''"
+                            v-model="searchInput.text" placeholder="Cerca o inizia una nuova chat">
                     </div>
 
                 </div>
