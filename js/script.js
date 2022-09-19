@@ -76,6 +76,7 @@ const app = new Vue({
                     if (lowerName.startsWith(text)) {
                         this.contactsToSearch.push(contact);
                         console.log(this.contactsToSearch)
+                        this.activeIndex = 0;
                     }
                 });
             }

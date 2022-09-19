@@ -152,25 +152,51 @@
                 <div class="chat-user col-2 d-flex justify-content-between align-items-center p-2">
 
                     <div class="user-info-container d-flex align-items-center">
-                        <div class="propic-container">
-                            <img class="avatar-icon img-fluid"
-                                :src="'img/avatar' + contacts[activeIndex].avatar +  '.jpg'"
-                                :alt="contacts[activeIndex].name" />
-                        </div>
 
-                        <div class="chat-contact-info">
+                        <!-- Header senza ricerca -->
+                        <template v-if="contactsToSearch.length === 0">
 
-                            <div class="contact-name fw-semibold">
-                                {{ contacts[activeIndex].name }}
+                            <div class="propic-container">
+                                <img class="avatar-icon img-fluid"
+                                    :src="'img/avatar' + contacts[activeIndex].avatar +  '.jpg'"
+                                    :alt="contacts[activeIndex].name" />
                             </div>
 
-                            <div class="last-seen">
-                                Ultimo accesso alle 12:00
+                            <div class="chat-contact-info">
+
+                                <div class="contact-name fw-semibold">
+                                    {{ contacts[activeIndex].name }}
+                                </div>
+
+                                <div class="last-seen">
+                                    Ultimo accesso alle 12:00
+                                </div>
+
+                        </template>
+
+                        <!-- Header con ricerca -->
+                        <template v-else>
+
+                            <div class="propic-container">
+                                <img class="avatar-icon img-fluid"
+                                    :src="'img/avatar' + contactsToSearch[activeIndex].avatar +  '.jpg'"
+                                    :alt="contactsToSearch[activeIndex].name" />
                             </div>
 
-                        </div>
+                            <div class="chat-contact-info">
+
+                                <div class="contact-name fw-semibold">
+                                    {{ contactsToSearch[activeIndex].name }}
+                                </div>
+
+                                <div class="last-seen">
+                                    Ultimo accesso alle 12:00
+                                </div>
+
+                        </template>
 
                     </div>
+
 
                     <div class="icon-container fs-4">
                         <i class="fa fa-search"></i>
@@ -183,6 +209,7 @@
                 <!-- Zona chat -->
                 <div id="chat-display" class="flex-grow-1 d-flex flex-column gap-2">
 
+                    <!-- Chat base -->
                     <template v-if="contactsToSearch.length === 0">
 
                         <div v-for="message in contacts[activeIndex].messages"
@@ -201,6 +228,7 @@
 
                     </template>
 
+                    <!-- Chat con ricerca -->
                     <template v-else>
 
                         <div v-for="message in contactsToSearch[activeIndex].messages"
