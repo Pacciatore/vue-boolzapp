@@ -15,28 +15,17 @@ const app = new Vue({
             empty: false
         },
         activeIndex: 0,
-        loaded: true,
         contacts,
         contactsToSearch: []
     },
     methods: {
         setActiveContact(index) {
             this.activeIndex = index;
-            // TODO orario da corregere da h/m in formato hh/mm
-            const dateToFormat = this.contacts[index].messages[0].date;
-            const array = dateToFormat.split(" "); // ["10/01/2020",  "15:30:55"]
-            const ora = array[1]; // "15:30:55"
-            const arrayOra = ora.split(":"); // ["15", "30", "55"]
-            const oreMinuti = arrayOra[0] + ":" + arrayOra[1]; // "15:30"
-            console.log(oreMinuti);
-
-            const adesso = new Date();
-            console.log(adesso.getHours() + ":" + adesso.getMinutes());
         },
         sendMessage(activeIndex) {
 
             const toSend = {
-                date: new Date(),
+                date: this.actualDateOurFormat(),
                 message: this.newMessage.text.trim(),
                 status: 'sent'
             };
@@ -66,7 +55,7 @@ const app = new Vue({
         receiveMessage(contact) {
             setTimeout(() => {
                 const toReceive = {
-                    date: new Date(),
+                    date: this.actualDateOurFormat(),
                     message: 'Ok!',
                     status: 'received'
                 };
@@ -95,6 +84,30 @@ const app = new Vue({
             this.searchInput.text = '';
         },
 
+        actualDateOurFormat() {
+            const nowDate = new Date();
+
+            const dayOfMonth = nowDate.getDate() < 10 ? '0' + nowDate.getDate() : nowDate.getDate();
+            const month = (nowDate.getMonth() + 1) < 10 ? '0' + (nowDate.getMonth() + 1) : (nowDate.getMonth() + 1);
+            const year = nowDate.getFullYear();
+            const hours = nowDate.getHours() < 10 ? '0' + nowDate.getHours() : nowDate.getHours();
+            const minutes = nowDate.getMinutes() < 10 ? '0' + nowDate.getMinutes() : nowDate.getMinutes();
+            const seconds = nowDate.getSeconds() < 10 ? '0' + nowDate.getSeconds() : nowDate.getSeconds();
+
+            const goodDate = `${dayOfMonth}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+            // console.log(goodDate);
+            return goodDate;
+        },
+        getMessageHhMm(hourToChange) {
+
+            const array = hourToChange.split(" "); // ["10/01/2020",  "15:30:55"]
+            const ora = array[1]; // "15:30:55"
+            const arrayOra = ora.split(":"); // ["15", "30", "55"]
+            hourToChange = arrayOra[0] + ":" + arrayOra[1]; // "15:30"
+
+            return hourToChange;
+
+        },
         emptyCheck(textContainer) {
             const toCheck = textContainer.text.trim();
             if (toCheck.length === 0) {
