@@ -147,6 +147,10 @@
     cursor: pointer;
 }
 
+.contacts-container .contact.active {
+    background-color: var(--tr-contact-grey);
+}
+
 .avatar-info-container>.propic-container {
     width: 65px;
     height: 65px;
@@ -157,8 +161,10 @@
     margin: 0;
 }
 
-.contacts-container .contact.active {
-    background-color: var(--tr-contact-grey);
+.avatar-info>.last-message-hour {
+    font-size: 0.65rem;
+    top: 0;
+    right: 0;
 }
 
 /*#endregion Contacts area  */

@@ -31,7 +31,7 @@
     <title>Boolzapp</title>
 </head>
 
-<body class="debug">
+<body>
     <div id="app" class="position-relative">
 
         <div class="bg-page-top"></div>
@@ -99,7 +99,7 @@
                         <div v-for="(contact, index) in contacts" :class="{ active: index === activeIndex}"
                             class="contact p-2" @click="setActiveContact(index)">
 
-                            <div class="avatar-info-container d-flex align-items-center">
+                            <div class="avatar-info-container d-flex align-items-center position-relative">
                                 <div class="propic-container">
                                     <img class="avatar-icon img-fluid" :src="'img/avatar' + contact.avatar +  '.jpg'"
                                         :alt="contact.name" />
@@ -107,7 +107,10 @@
 
                                 <div class="avatar-info ps-3 pt-1">
                                     <h2>{{contact.name}}</h2>
-                                    <p>Ultimo messaggio inviato</p>
+                                    <p>{{ contact.messages[contact.messages.length-1].message }}</p>
+                                    <div class="last-message-hour position-absolute">
+                                        {{ getMessageHhMm(contact.messages[contact.messages.length-1].date) }}
+                                    </div>
                                 </div>
 
                             </div>
@@ -133,7 +136,12 @@
 
                                 <div class="avatar-info ps-3 pt-1">
                                     <h2>{{searchedContact.name}}</h2>
-                                    <p>Ultimo messaggio inviato</p>
+                                    <p>{{ searchedContact.messages[searchedContact.messages.length-1].message }}</p>
+                                    <div class="last-message-hour position-absolute">
+                                        {{
+                                        getMessageHhMm(searchedContact.messages[searchedContact.messages.length-1].date)
+                                        }}
+                                    </div>
                                 </div>
 
                             </div>
