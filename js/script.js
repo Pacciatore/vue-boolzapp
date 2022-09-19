@@ -41,26 +41,36 @@ const app = new Vue({
                 status: 'sent'
             };
 
-            if (toSend.message.length > 0) {
-                this.contacts[activeIndex].messages.push(toSend);
+            if (this.contactsToSearch.length === 0) {
+                if (toSend.message.length > 0) {
+                    this.contacts[activeIndex].messages.push(toSend);
 
-                this.receiveMessage(activeIndex);
+                    this.receiveMessage(activeIndex, this.contacts[activeIndex]);
+                } else {
+                    console.log('impossibile inviare');
+                }
             } else {
-                console.log('impossibile inviare');
+                if (toSend.message.length > 0) {
+                    this.contactsToSearch[activeIndex].messages.push(toSend);
+
+                    this.receiveMessage(activeIndex, this.contactsToSearch[activeIndex]);
+                } else {
+                    console.log('impossibile inviare');
+                }
             }
 
             this.newMessage.text = '';
 
 
         },
-        receiveMessage(activeIndex) {
+        receiveMessage(activeIndex, contact) {
             setTimeout(() => {
                 const toReceive = {
                     date: new Date(),
                     message: 'Ok!',
                     status: 'received'
                 };
-                this.contacts[activeIndex].messages.push(toReceive);
+                contact.messages.push(toReceive);
 
             }, 1000)
         },
