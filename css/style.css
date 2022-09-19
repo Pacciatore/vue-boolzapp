@@ -73,7 +73,8 @@
 
 #left-panel .icon-container,
 #right-panel .icon-container,
-.chat-message-bar>i {
+.chat-message-bar>i,
+.dropdown-message-menu>i {
     color: var(--tr-boolzap-dark-grey);
 }
 
@@ -204,8 +205,19 @@
 #chat-display .message-hour {
     font-size: 0.65rem;
     color: var(--tr-boolzap-dark-grey);
+    cursor: default;
 
     right: 10px;
+}
+
+#chat-display .chat-message-text:hover>.dropdown {
+    display: block !important;
+}
+
+#chat-display .dropdown {
+    top: 0;
+    right: 10px;
+    cursor: pointer;
 }
 
 /*#endregion Zona Chat Display  */

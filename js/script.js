@@ -83,6 +83,12 @@ const app = new Vue({
             console.log(text);
             this.searchInput.text = '';
         },
+        deleteMessage() {
+            console.log('eliminato');
+        },
+        showMessageInfo() {
+            console.log('message info')
+        },
 
         actualDateOurFormat() {
             const nowDate = new Date();
