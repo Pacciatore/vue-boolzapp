@@ -21,6 +21,7 @@ const app = new Vue({
     methods: {
         setActiveContact(index) {
             this.activeIndex = index;
+            this.scrollToBottom();
         },
         sendMessage(activeIndex) {
 
@@ -34,6 +35,7 @@ const app = new Vue({
                 if (toSend.message.length > 0) {
                     this.contacts[activeIndex].messages.push(toSend);
 
+                    this.scrollToBottom();
                     this.receiveMessage(this.contacts[activeIndex]);
                 } else {
                     console.log('impossibile inviare');
@@ -42,6 +44,7 @@ const app = new Vue({
                 if (toSend.message.length > 0) {
                     this.contactsToSearch[activeIndex].messages.push(toSend);
 
+                    this.scrollToBottom();
                     this.receiveMessage(this.contactsToSearch[activeIndex]);
                 } else {
                     console.log('impossibile inviare');
@@ -61,6 +64,7 @@ const app = new Vue({
                 };
                 contact.messages.push(toReceive);
 
+                this.scrollToBottom();
             }, 1000)
         },
         searchContact(text) {
@@ -76,6 +80,7 @@ const app = new Vue({
                         this.contactsToSearch.push(contact);
                         console.log(this.contactsToSearch)
                         this.activeIndex = 0;
+                        this.scrollToBottom();
                     }
                 });
             }
@@ -126,6 +131,12 @@ const app = new Vue({
                 textContainer.empty = false;
                 console.log(this.newMessage.empty);
             }
+        },
+        scrollToBottom() {
+            setTimeout(() => {
+                const messages = document.getElementById("chat-display");
+                messages.scrollTop = messages.scrollHeight - messages.offsetHeight;
+            }, 5);
         }
     }
 
