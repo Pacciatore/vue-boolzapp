@@ -41,6 +41,10 @@
     outline: none;
 }
 
+.tr-fade {
+    transition: box-shadow 0.25s;
+}
+
 
 /* Shared */
 .propic-container,
@@ -204,6 +208,10 @@
 
 .chat-message-bar>* {
     height: 50px;
+}
+
+.chat-message-bar .noText {
+    box-shadow: inset 0px 0px 20px 0px #aba09f;
 }
 
 

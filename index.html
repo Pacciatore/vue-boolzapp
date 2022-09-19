@@ -175,8 +175,9 @@
 
                     <i class="far fa-smile col-1 d-flex align-items-center justify-content-center fs-4"></i>
 
-                    <input type="text" placeholder="Scrivi un messaggio" class="flex-grow-1 border-0 ps-3 rounded"
-                        v-model="newMessage" @keyUp.enter="sendMessage(activeIndex)">
+                    <input type="text" placeholder="Scrivi un messaggio" :class="{ noText : newMessage.empty === true }"
+                        class="flex-grow-1 border-0 ps-3 rounded tr-fade" v-model="newMessage.text"
+                        @keyUp="emptyCheck(newMessage.text)" @keyUp.enter="sendMessage(activeIndex)">
 
                     <i class="fa fa-microphone col-1 d-flex align-items-center justify-content-center fs-4"></i>
 

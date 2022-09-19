@@ -6,7 +6,10 @@ const app = new Vue({
 
     el: '#app',
     data: {
-        newMessage: '',
+        newMessage: {
+            text: '',
+            empty: false
+        },
         activeIndex: 0,
         contacts,
     },
@@ -28,18 +31,29 @@ const app = new Vue({
 
             const toSend = {
                 date: new Date(),
-                message: this.newMessage.trim(),
+                message: this.newMessage.text.trim(),
                 status: 'sent'
             };
 
             if (toSend.message.length > 0) {
                 this.contacts[activeIndex].messages.push(toSend);
             } else {
-                console.log('impossibile inviare')
+                console.log('impossibile inviare');
             }
 
-            this.newMessage = '';
+            this.newMessage.text = '';
 
+
+        },
+        emptyCheck(text) {
+            const toCheck = text.trim();
+            if (toCheck.length === 0) {
+                this.newMessage.empty = true;
+                console.log(this.newMessage.empty);
+            } else {
+                this.newMessage.empty = false;
+                console.log(this.newMessage.empty);
+            }
         }
     }
 
