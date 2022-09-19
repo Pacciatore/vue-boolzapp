@@ -183,19 +183,41 @@
                 <!-- Zona chat -->
                 <div id="chat-display" class="flex-grow-1 d-flex flex-column gap-2">
 
-                    <div v-for="message in contacts[activeIndex].messages"
-                        class="chat-message-text col-5 rounded-4 p-3 position-relative"
-                        :class="{ sent: message.status === 'sent', received : message.status === 'received' }">
+                    <template v-if="contactsToSearch.length === 0">
 
-                        {{ message.message }}
+                        <div v-for="message in contacts[activeIndex].messages"
+                            class="chat-message-text col-5 rounded-4 p-3 position-relative"
+                            :class="{ sent: message.status === 'sent', received : message.status === 'received' }">
 
-                        <div class="message-hour position-absolute">
+                            {{ message.message }}
 
-                            16:00
+                            <div class="message-hour position-absolute">
+
+                                16:00
+
+                            </div>
 
                         </div>
 
-                    </div>
+                    </template>
+
+                    <template v-else>
+
+                        <div v-for="message in contactsToSearch[activeIndex].messages"
+                            class="chat-message-text col-5 rounded-4 p-3 position-relative"
+                            :class="{ sent: message.status === 'sent', received : message.status === 'received' }">
+
+                            {{ message.message }}
+
+                            <div class="message-hour position-absolute">
+
+                                16:00
+
+                            </div>
+
+                        </div>
+
+                    </template>
 
                 </div>
 
