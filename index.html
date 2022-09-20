@@ -248,7 +248,8 @@
                                 </ul>
                             </div>
 
-                            <div v-if="message.status !== 'new' && message.status === 'sent'"
+                            <div v-if="!message.status.includes('new') && message.status.includes('sent')"
+                                :class="{ seen : message.status.includes('seen') }"
                                 class="message-check position-absolute">
 
                                 <i class="fa-solid fa-check-double"></i>
@@ -289,7 +290,8 @@
                                 </ul>
                             </div>
 
-                            <div v-if="message.status !== 'new' && message.status === 'sent'"
+                            <div v-if="!message.status.includes('new') && message.status.includes('sent')"
+                                :class="{ seen : message.status.includes('seen') }"
                                 class="message-check position-absolute">
 
                                 <i class="fa-solid fa-check-double"></i>

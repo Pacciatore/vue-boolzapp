@@ -118,6 +118,15 @@ const app = new Vue({
                 };
                 contact.messages.push(toReceive);
 
+                contact.messages.forEach(message => {
+                    console.log(message)
+
+                    if (message.status === 'sent') {
+                        message.status += ' seen';
+                        console.log('visualizzato messaggio: ', message)
+                    }
+                });
+
                 this.scrollToBottom();
 
                 // Metodo per aggiungere la classe dinamicamente
