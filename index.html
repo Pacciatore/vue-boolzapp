@@ -82,8 +82,9 @@
                         <i @click="emptyCheck(searchInput), searchContact(searchInput.text)" class="fas fa-search"></i>
 
                         <input type="text" class="search-input flex-grow-1 border-0 ps-2 tr-fade"
-                            :class="{ noText : searchInput.empty === true }" @keyUp="emptyCheck(searchInput)"
-                            @keyUp.enter="createContact(searchInput.text), searchContact(searchInput.text)"
+                            :class="{ noText : searchInput.empty === true }"
+                            @keyUp="emptyCheck(searchInput), searchContact(searchInput.text)"
+                            @keyUp.enter="createContact(searchInput.text)"
                             @keyUp.escape="contactsToSearch.length = 0; searchInput.text = ''"
                             v-model="searchInput.text" placeholder="Cerca o inizia una nuova chat">
                     </div>

@@ -43,7 +43,6 @@ const app = new Vue({
             }
 
             console.log(text);
-            this.searchInput.text = '';
         },
         createContact(inputName) {
 
@@ -64,7 +63,12 @@ const app = new Vue({
                 };
 
                 this.contacts.push(newDefaultContact);
+                this.searchContact(newDefaultContact.name);
+
             }
+
+            this.searchInput.text = '';
+
         },
 
         // Message functions
