@@ -50,6 +50,7 @@
 }
 
 /* Shared */
+/*#region people  */
 .propic-container,
 .notification-icon {
     width: 50px;
@@ -61,6 +62,15 @@
     border-radius: 50%;
 }
 
+.avatar-info>p,
+.chat-contact-info .last-seen {
+    font-size: 0.85rem;
+    color: var(--tr-boolzap-dark-grey);
+}
+
+/*#endregion people  */
+
+/*#region panels  */
 #left-panel>*,
 #right-panel>* {
     width: 100%;
@@ -89,12 +99,8 @@
     padding: 0 5px;
 }
 
+/*#endregion panels  */
 
-.avatar-info>p,
-.chat-contact-info .last-seen {
-    font-size: 0.85rem;
-    color: var(--tr-boolzap-dark-grey);
-}
 
 
 /*#region Left Panel */
