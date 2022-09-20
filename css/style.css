@@ -201,6 +201,7 @@
     padding: 3rem 6rem;
 }
 
+/* Message text-box */
 #chat-display .chat-message-text.received {
     background-color: white;
 }
@@ -223,6 +224,7 @@
     text-align: center;
 }
 
+/* Message hour */
 #chat-display .message-hour {
     font-size: 0.65rem;
     color: var(--tr-boolzap-dark-grey);
@@ -237,6 +239,7 @@
     right: 10px;
 }
 
+/* Message check */
 #chat-display .message-check {
     color: var(--tr-boolzap-dark-grey);
 
@@ -252,6 +255,7 @@
     display: block !important;
 }
 
+/* Message Dropdown */
 #chat-display .dropdown {
     top: 0;
     right: 10px;
