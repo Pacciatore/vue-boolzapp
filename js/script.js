@@ -118,14 +118,7 @@ const app = new Vue({
                 };
                 contact.messages.push(toReceive);
 
-                contact.messages.forEach(message => {
-                    console.log(message)
-
-                    if (message.status === 'sent') {
-                        message.status += ' seen';
-                        console.log('visualizzato messaggio: ', message)
-                    }
-                });
+                this.seenCheck(contact);
 
                 this.scrollToBottom();
 
@@ -168,6 +161,12 @@ const app = new Vue({
 
             return hourToChange;
 
+        },
+        seenCheck(contact) {
+            contact.messages.forEach(message => {
+                if (message.status === 'sent')
+                    message.status += ' seen';
+            });
         },
 
         // Misc functions
