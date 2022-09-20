@@ -186,6 +186,27 @@ const app = new Vue({
 
 })
 
+// Tentativo fallito di visualizzato
+// seenCheck(activeIndex, startingIndex) {
+//     console.log('starting index: ', startingIndex, ' active index: ', activeIndex)
+//     const latestMessages = this.contacts[activeIndex].messages.slice(startingIndex);
+//     console.log({ latestMessages });
 
-// TODO Bugs:
+
+//     latestMessages.forEach(latestMessage => {
+
+//         let seen = false
+//         if (latestMessage.status.includes('received')) {
+//             seen = true
+//         } else {
+//             seen = false;
+//         }
+//         return seen;
+
+//     });
+
+// },
+
+
+//#region TODO Bugs:
 //              -creazione multipla di uno stesso contatto
