@@ -34,6 +34,10 @@ const app = new Vue({
             // Controllo se il messaggio lo invio mentre sto cercando un contatto o meno
             if (this.contactsToSearch.length === 0) {
                 if (toSend.message.length > 0) {
+
+                    // Eliminazione notifica nuova chat
+                    this.contacts[activeIndex].messages[0].status === 'new' ? this.contacts[activeIndex].messages.pop() : '';
+
                     this.contacts[activeIndex].messages.push(toSend);
 
                     this.scrollToBottom();
@@ -43,6 +47,10 @@ const app = new Vue({
                 }
             } else {
                 if (toSend.message.length > 0) {
+
+                    // Eliminazione notifica nuova chat
+                    this.contactsToSearch[activeIndex].messages[0].status === 'new' ? this.contactsToSearch[activeIndex].messages.pop() : '';
+
                     this.contactsToSearch[activeIndex].messages.push(toSend);
 
                     this.scrollToBottom();
@@ -109,7 +117,6 @@ const app = new Vue({
         },
         // TODO Bugs: 
         //              -creazione multipla di uno stesso contatto
-        //              -non coincidenza activeIndex
 
         createContact(inputName) {
 
