@@ -227,8 +227,14 @@
     font-size: 0.65rem;
     color: var(--tr-boolzap-dark-grey);
     cursor: default;
+}
 
+#chat-display .chat-message-text.sent>.message-hour {
     right: 30px;
+}
+
+#chat-display .chat-message-text.received>.message-hour {
+    right: 10px;
 }
 
 #chat-display .message-check {
