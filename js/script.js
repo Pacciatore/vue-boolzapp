@@ -57,7 +57,7 @@ const app = new Vue({
                     visible: true,
                     messages: [{
                         date: this.actualDateOurFormat(),
-                        message: 'Inizia una conversazione',
+                        message: 'Messaggi e chiamate utilizzano la crittorgrafia end-to-end. Nessuno al di fuori di questa chat, neanche Boolzapp, può leggerli o sentirli.',
                         status: 'new'
                     }]
                 };
