@@ -248,6 +248,13 @@
                                 </ul>
                             </div>
 
+                            <div v-if="message.status !== 'new' && message.status === 'sent'"
+                                class="message-check position-absolute">
+
+                                <i class="fa-solid fa-check-double"></i>
+
+                            </div>
+
                         </div>
 
                     </template>
@@ -280,6 +287,13 @@
                                         message
                                     </li>
                                 </ul>
+                            </div>
+
+                            <div v-if="message.status !== 'new' && message.status === 'sent'"
+                                class="message-check position-absolute">
+
+                                <i class="fa-solid fa-check-double"></i>
+
                             </div>
 
                         </div>
