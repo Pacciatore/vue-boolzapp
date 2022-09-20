@@ -230,6 +230,7 @@
 
 #chat-display .chat-message-text.new {
     background-color: var(--tr-boolzap-new-alert-bg);
+    color: var(--tr-boolzap-azure-grey);
     border-radius: 0 !important;
     margin-bottom: 50px;
 
