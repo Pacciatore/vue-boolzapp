@@ -83,7 +83,7 @@
 
                         <input type="text" class="search-input flex-grow-1 border-0 ps-2 tr-fade"
                             :class="{ noText : searchInput.empty === true }" @keyUp="emptyCheck(searchInput)"
-                            @keyUp.enter="searchContact(searchInput.text)"
+                            @keyUp.enter="createContact(searchInput.text), searchContact(searchInput.text)"
                             @keyUp.escape="contactsToSearch.length = 0; searchInput.text = ''"
                             v-model="searchInput.text" placeholder="Cerca o inizia una nuova chat">
                     </div>
@@ -222,18 +222,18 @@
                     <template v-if="contactsToSearch.length === 0">
 
                         <div v-for="message in contacts[activeIndex].messages"
-                            class="chat-message-text col-5 rounded-4 p-3 position-relative" :class="{ sent: message.status.includes('sent'), received : message.status.includes('received'),
+                            class="chat-message-text col-5 rounded-4 p-3 position-relative" :class="{ new : message.status.includes('new'), sent: message.status.includes('sent'), received : message.status.includes('received'),
                         deleted : message.status.includes('deleted') }">
 
                             {{ message.message }}
 
-                            <div class="message-hour position-absolute">
+                            <div v-if="message.status !== 'new'" class="message-hour position-absolute">
 
                                 {{ getMessageHhMm(message.date) }}
 
                             </div>
 
-                            <div class="dropdown position-absolute d-none">
+                            <div v-if="message.status !== 'new'" class="dropdown position-absolute d-none">
                                 <div class="dropdown-message-menu" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-chevron-down"></i>
                                 </div>
@@ -254,18 +254,18 @@
                     <template v-else>
 
                         <div v-for=" message in contactsToSearch[activeIndex].messages"
-                            class="chat-message-text col-5 rounded-4 p-3 position-relative" :class="{ sent: message.status.includes('sent'), received : message.status.includes('received'),
+                            class="chat-message-text col-5 rounded-4 p-3 position-relative" :class="{ new : message.status.includes('new'), sent: message.status.includes('sent'), received : message.status.includes('received'),
                         deleted : message.status.includes('deleted') }">
 
                             {{ message.message }}
 
-                            <div class="message-hour position-absolute">
+                            <div v-if="message.status !== 'new'" class="message-hour position-absolute">
 
                                 {{ getMessageHhMm(message.date) }}
 
                             </div>
 
-                            <div class="dropdown position-absolute d-none">
+                            <div v-if="message.status !== 'new'" class="dropdown position-absolute d-none">
                                 <div class="dropdown-message-menu" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-chevron-down"></i>
                                 </div>

@@ -65,7 +65,16 @@ const app = new Vue({
                 contact.messages.push(toReceive);
 
                 this.scrollToBottom();
-            }, 1000)
+
+                // Metodo per aggiungere la classe dinamicamente
+                // setTimeout(() => {
+                //     const el = document.querySelector(`.chat-message-text:nth-child(${contact.messages.length})`);
+                //     el.classList.add('received');
+                //     console.log({ el });
+
+                // }, 5);
+
+            }, 1000);
         },
         searchContact(text) {
             this.contactsToSearch.length = 0;
@@ -96,6 +105,27 @@ const app = new Vue({
         },
         showMessageInfo() {
             console.log('message info')
+        },
+        createContact(inputName) {
+
+            if (inputName.length < 3) {
+                return;
+            } else {
+                console.log('Creazione contatto... ', this.searchInput);
+
+                const newDefaultContact = {
+                    name: inputName,
+                    avatar: '_def',
+                    visible: true,
+                    messages: [{
+                        date: this.actualDateOurFormat(),
+                        message: 'Inizia una conversazione',
+                        status: 'new'
+                    }]
+                };
+
+                this.contacts.push(newDefaultContact);
+            }
         },
 
         actualDateOurFormat() {

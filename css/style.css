@@ -10,6 +10,8 @@
 
     --tr-boolzap-azure: #8edafc;
     --tr-boolzap-azure-grey: #7096a2;
+
+    --tr-boolzap-new-alert-bg: #fff279;
 }
 
 /* Generics */
@@ -210,6 +212,15 @@
 
 #chat-display .chat-message-text.deleted {
     color: var(--tr-boolzap-dark-grey);
+}
+
+#chat-display .chat-message-text.new {
+    background-color: var(--tr-boolzap-new-alert-bg);
+    border-radius: 0 !important;
+    margin-bottom: 50px;
+
+    align-self: center;
+    text-align: center;
 }
 
 #chat-display .message-hour {
