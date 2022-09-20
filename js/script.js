@@ -31,6 +31,7 @@ const app = new Vue({
                 status: 'sent'
             };
 
+            // Controllo se il messaggio lo invio mentre sto cercando un contatto o meno
             if (this.contactsToSearch.length === 0) {
                 if (toSend.message.length > 0) {
                     this.contacts[activeIndex].messages.push(toSend);
@@ -106,6 +107,10 @@ const app = new Vue({
         showMessageInfo() {
             console.log('message info')
         },
+        // TODO Bugs: 
+        //              -creazione multipla di uno stesso contatto
+        //              -non coincidenza activeIndex
+
         createContact(inputName) {
 
             if (inputName.length < 3) {
