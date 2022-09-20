@@ -227,12 +227,14 @@
 
                             {{ message.message }}
 
+                            <!-- Orario messaggio -->
                             <div v-if="message.status !== 'new'" class="message-hour position-absolute">
 
                                 {{ getMessageHhMm(message.date) }}
 
                             </div>
 
+                            <!-- Dropdown messaggio -->
                             <div v-if="message.status !== 'new'" class="dropdown position-absolute d-none">
                                 <div class="dropdown-message-menu" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-chevron-down"></i>
@@ -259,12 +261,14 @@
 
                             {{ message.message }}
 
+                            <!-- Orario messaggio -->
                             <div v-if="message.status !== 'new'" class="message-hour position-absolute">
 
                                 {{ getMessageHhMm(message.date) }}
 
                             </div>
 
+                            <!-- Dropdown messaggio -->
                             <div v-if="message.status !== 'new'" class="dropdown position-absolute d-none">
                                 <div class="dropdown-message-menu" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="fa-solid fa-chevron-down"></i>
