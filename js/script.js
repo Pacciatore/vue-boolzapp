@@ -19,10 +19,55 @@ const app = new Vue({
         contactsToSearch: []
     },
     methods: {
+        // Contact functions
         setActiveContact(index) {
             this.activeIndex = index;
             this.scrollToBottom();
         },
+        searchContact(text) {
+            this.contactsToSearch.length = 0;
+
+            if (text.trim().length > 0) {
+                text = text.toLowerCase();
+                this.contacts.forEach(contact => {
+
+                    const lowerName = contact.name.toLowerCase();
+
+                    if (lowerName.startsWith(text)) {
+                        this.contactsToSearch.push(contact);
+                        console.log(this.contactsToSearch)
+                        this.activeIndex = 0;
+                        this.scrollToBottom();
+                    }
+                });
+            }
+
+            console.log(text);
+            this.searchInput.text = '';
+        },
+        createContact(inputName) {
+
+            if (inputName.length < 3) {
+                return;
+            } else {
+                console.log('Creazione contatto... ', this.searchInput);
+
+                const newDefaultContact = {
+                    name: inputName,
+                    avatar: '_def',
+                    visible: true,
+                    messages: [{
+                        date: this.actualDateOurFormat(),
+                        message: 'Inizia una conversazione',
+                        status: 'new'
+                    }]
+                };
+
+                this.contacts.push(newDefaultContact);
+            }
+        },
+
+        // Message functions
         sendMessage(activeIndex) {
 
             const toSend = {
@@ -85,27 +130,6 @@ const app = new Vue({
 
             }, 1000);
         },
-        searchContact(text) {
-            this.contactsToSearch.length = 0;
-
-            if (text.trim().length > 0) {
-                text = text.toLowerCase();
-                this.contacts.forEach(contact => {
-
-                    const lowerName = contact.name.toLowerCase();
-
-                    if (lowerName.startsWith(text)) {
-                        this.contactsToSearch.push(contact);
-                        console.log(this.contactsToSearch)
-                        this.activeIndex = 0;
-                        this.scrollToBottom();
-                    }
-                });
-            }
-
-            console.log(text);
-            this.searchInput.text = '';
-        },
         deleteMessage(message) {
             if (!message.status.includes('deleted')) {
                 message.message = 'Messaggio eliminato';
@@ -115,31 +139,29 @@ const app = new Vue({
         showMessageInfo() {
             console.log('message info')
         },
-        // TODO Bugs: 
-        //              -creazione multipla di uno stesso contatto
 
-        createContact(inputName) {
-
-            if (inputName.length < 3) {
-                return;
+        emptyCheck(textContainer) {
+            const toCheck = textContainer.text.trim();
+            if (toCheck.length === 0) {
+                textContainer.empty = true;
+                console.log(this.newMessage.empty);
             } else {
-                console.log('Creazione contatto... ', this.searchInput);
-
-                const newDefaultContact = {
-                    name: inputName,
-                    avatar: '_def',
-                    visible: true,
-                    messages: [{
-                        date: this.actualDateOurFormat(),
-                        message: 'Inizia una conversazione',
-                        status: 'new'
-                    }]
-                };
-
-                this.contacts.push(newDefaultContact);
+                textContainer.empty = false;
+                console.log(this.newMessage.empty);
             }
         },
+        getMessageHhMm(hourToChange) {
 
+            const array = hourToChange.split(" "); // ["10/01/2020",  "15:30:55"]
+            const ora = array[1]; // "15:30:55"
+            const arrayOra = ora.split(":"); // ["15", "30", "55"]
+            hourToChange = arrayOra[0] + ":" + arrayOra[1]; // "15:30"
+
+            return hourToChange;
+
+        },
+
+        // Misc functions
         actualDateOurFormat() {
             const nowDate = new Date();
 
@@ -154,26 +176,6 @@ const app = new Vue({
             // console.log(goodDate);
             return goodDate;
         },
-        getMessageHhMm(hourToChange) {
-
-            const array = hourToChange.split(" "); // ["10/01/2020",  "15:30:55"]
-            const ora = array[1]; // "15:30:55"
-            const arrayOra = ora.split(":"); // ["15", "30", "55"]
-            hourToChange = arrayOra[0] + ":" + arrayOra[1]; // "15:30"
-
-            return hourToChange;
-
-        },
-        emptyCheck(textContainer) {
-            const toCheck = textContainer.text.trim();
-            if (toCheck.length === 0) {
-                textContainer.empty = true;
-                console.log(this.newMessage.empty);
-            } else {
-                textContainer.empty = false;
-                console.log(this.newMessage.empty);
-            }
-        },
         scrollToBottom() {
             setTimeout(() => {
                 const messages = document.getElementById("chat-display");
@@ -183,3 +185,7 @@ const app = new Vue({
     }
 
 })
+
+
+// TODO Bugs:
+//              -creazione multipla di uno stesso contatto
