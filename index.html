@@ -248,6 +248,7 @@
                                 </ul>
                             </div>
 
+                            <!-- Spunte visualizzato -->
                             <div v-if="!message.status.includes('new') && message.status.includes('sent')"
                                 :class="{ seen : message.status.includes('seen') }"
                                 class="message-check position-absolute">
@@ -290,6 +291,7 @@
                                 </ul>
                             </div>
 
+                            <!-- Spunte visualizzato -->
                             <div v-if="!message.status.includes('new') && message.status.includes('sent')"
                                 :class="{ seen : message.status.includes('seen') }"
                                 class="message-check position-absolute">

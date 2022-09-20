@@ -162,6 +162,7 @@ const app = new Vue({
             return hourToChange;
 
         },
+        // TODO Per ora funziona solo dopo che si invia un messaggio
         seenCheck(contact) {
             contact.messages.forEach(message => {
                 if (message.status === 'sent')
